@@ -9,7 +9,7 @@ create table visits
 	url String,
 	visitAt DateTime
 )
-engine = MergeTree PARTITION BY ((visitAt, UserID), (visitAt, RegionID)) ORDER BY visitAt SETTINGS index_granularity = 8192;
+engine = MergeTree PARTITION BY ((visitAt, UserID), (visitAt, RegionID)) ORDER BY (visitAt, UserID, RegionID)  SETTINGS index_granularity = 8192;
 
 ```
 
